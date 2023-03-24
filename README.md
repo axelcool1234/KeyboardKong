@@ -1,0 +1,1 @@
+KeyboardKong is a Discord bot that can be used to retrieve MonkeyType stats.
