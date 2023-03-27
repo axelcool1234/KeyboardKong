@@ -1,5 +1,8 @@
+# bot.py
+# Handles user commands and messages.
+
 import discord
-def run_discord_bot(TOKEN):
+def run_discord_bot(TOKEN, APE_KEY):
     intents = discord.Intents.default()
     intents.message_content = True
     client = discord.Client(intents = intents)
