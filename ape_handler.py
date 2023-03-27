@@ -11,7 +11,7 @@ def generate_response(APE_KEY: str, request: tuple) -> dict:
     response = get_result(url,APE_KEY)
     return response
 
-def build_search_url(query_parameters, search_type) -> str:
+def build_search_url(query_parameters: dict, search_type: str) -> str:
     return f'{BASE_MONKEYTYPE_URL}{search_type}?{urllib.parse.urlencode(query_parameters)}'
 
 def get_result(url: str, APE_KEY: str) -> dict:
