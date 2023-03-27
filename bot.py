@@ -19,7 +19,7 @@ def run_discord_bot(TOKEN, APE_KEY):
             return
 
         if message.content.startswith('!'):
-            #request  (TUPLE) = ape_reader.process_request(message.content[1:])
+            #request  (TUPLE) = message_reader.process_request(message.content[1:])
             #response (DICT) = ape_handler.generate_response(APE_KEY, request)
             #message  (STR) = ape_reader.process_response(response)
             #await message.channel.send(message)
