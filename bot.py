@@ -2,6 +2,8 @@
 # Handles user commands and messages.
 
 import discord
+import ape_handler
+import message_reader
 def run_discord_bot(TOKEN, APE_KEY):
     intents = discord.Intents.default()
     intents.message_content = True
@@ -16,6 +18,10 @@ def run_discord_bot(TOKEN, APE_KEY):
         if message.author == client.user:
             return
 
-        if message.content.startswith('!hello'):
-            await message.channel.send('Hello World!')
+        if message.content.startswith('!'):
+            #request  (TUPLE) = ape_reader.process_request(message.content[1:])
+            #response (DICT) = ape_handler.generate_response(APE_KEY, request)
+            #message  (STR) = ape_reader.process_response(response)
+            #await message.channel.send(message)
+            pass
     client.run(TOKEN)
