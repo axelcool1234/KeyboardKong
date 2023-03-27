@@ -1,15 +1,18 @@
 # message_reader.py
 # Module handles user messages and returns a bot response.
 import ape_reader
-def process_request(message: str) -> str:
-    message = message.lower()
-    if message.startswith('monkey'):
-        #request  (TUPLE) = BLAH BLAH BLAH
+
+class MessageProcessError(Exception):
+    pass
+def process_request(command: str) -> str:
+    command = command.lower()
+    if command.startswith('monkey'):
+        request = process_monkey_request(command)
         #response (DICT) = ape_handler.generate_response(APE_KEY, request)
         #message  (STR) = ape_reader.process_response(response)
         #return message
         pass
-    elif message.startswith('help'):
+    elif command.startswith('help'):
         #TODO: Fix this mess...
         return '```' \
                '🟡 === KeyboardKong Commands === 🟡\n' \
@@ -40,3 +43,19 @@ def process_request(message: str) -> str:
                '```'
     else:
         return None
+
+def process_monkey_request(command: str) -> tuple:
+    command_parameters = command.split()
+    match command_parameters[1]:
+        case 'personalbest':
+            pass
+        case 'stats':
+            pass
+        case 'profile':
+            pass
+        case 'leaderboard':
+            pass
+        case 'rank':
+            pass
+        case other:
+            raise MessageProcessError

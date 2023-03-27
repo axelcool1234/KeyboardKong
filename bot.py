@@ -17,6 +17,10 @@ def run_discord_bot(TOKEN, APE_KEY):
             return
 
         if message.content.startswith('!'):
-            bot_message = message_reader.process_request(message.content[1:])
-            await message.channel.send(bot_message)
+            try:
+                bot_message = message_reader.process_request(message.content[1:])
+                await message.channel.send(bot_message)
+            except message_reader.MessageProcessError:
+                await message.channel.send('Your monkey command is incorrect!')
+
     client.run(TOKEN)
